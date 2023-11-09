@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário para adicionar carros</title>
+</head>
+<body>
+<h2>Formulário para adicionar carros</h2>
+<form th:action="@{/cars}" th:object="${car}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <div>
+        <label for="brand">Marca</label>
+        <input type="text" id="brand" th:field="*{brand}">
+    </div>
+    <div>
+        <label for="model">Modelo</label>
+        <input type="text" id="model" th:field="*{model}">
+    </div>
+    <div>
+        <label for="year">Ano</label>
+        <input type="text" id="year" th:field="*{year}">
+    </div>
+    <div>
+        <label for="color">Cor</label>
+        <input type="text" id="color" th:field="*{color}">
+    </div>
+    <div>
+        <button type="submit">Enviar</button>
+    </div>
+</form>
+</body>
+</html>
