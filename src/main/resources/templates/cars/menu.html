@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Menu Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .menu-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        .menu-link {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-align:center;
+            color: #333;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-link:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+<h2>Menu Principal</h2>
+<div class="menu-container">
+    <a class="menu-link" th:href="@{/cars/create}">Adicionar carro</a>
+    <a class="menu-link" th:href="@{/cars/edit}">Ver lista de carros cadastrados</a>
+</div>
+</body>
+</html>

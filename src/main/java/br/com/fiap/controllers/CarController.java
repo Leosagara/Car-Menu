@@ -15,9 +15,15 @@ public class CarController {
     private CarService carService;
 
     @GetMapping
+    public String menu(Model model){
+        model.addAttribute("cars",carService.findAll());
+        return "cars/menu";
+    }
+
+    @GetMapping("/edit")
     public String listCars(Model model){
         model.addAttribute("cars",carService.findAll());
-        return "cars/list";
+        return "cars/carList";
     }
 
     @GetMapping("/create")
@@ -29,7 +35,7 @@ public class CarController {
     @PostMapping
     public String saveCar(@ModelAttribute Car car) {
         carService.save(car);
-        return "redirect:cars";
+        return "redirect:cars/edit";
     }
 
     @GetMapping("/edit/{id}")
@@ -48,6 +54,6 @@ public class CarController {
     @GetMapping("/delete/{id}")
     public String deleteCar(@PathVariable Long id) {
         carService.deleteById(id);
-        return "redirect:/cars";
+        return "redirect:/cars/edit";
     }
 }

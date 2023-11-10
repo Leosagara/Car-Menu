@@ -1,31 +1,106 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Formulário para adicionar carros</title>
+    <title>Preencha com as informações do carro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input{
+            width:274px;
+            border-radius:15px;
+            border:1.5px solid #C0C0C0;
+        }
+
+        .form-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        .form-input {
+            padding: 10px;
+            width: 100%;
+        }
+
+        .form-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-label{
+            border-radius: 15px;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
 </head>
 <body>
 <h2>Formulário para adicionar carros</h2>
-<form th:action="@{/cars}" th:object="${car}" method="post">
+<form class="form-container" th:action="@{/cars}" th:object="${car}" method="post">
     <input type="hidden" th:field="*{id}">
-    <div>
-        <label for="brand">Marca</label>
-        <input type="text" id="brand" th:field="*{brand}">
+    <div class="form-input">
+        <div>
+            <label for="brand">Marca</label>
+        </div>
+        <div>
+            <input type="text" id="brand" th:field="*{brand}">
+        </div>
     </div>
-    <div>
-        <label for="model">Modelo</label>
-        <input type="text" id="model" th:field="*{model}">
+    <div class="form-input" >
+        <div>
+            <label for="model">Modelo</label>
+        </div>
+        <div>
+            <input type="text" id="model" th:field="*{model}">
+        </div>
     </div>
-    <div>
-        <label for="year">Ano</label>
-        <input type="text" id="year" th:field="*{year}">
+    <div class="form-input">
+        <div>
+            <label for="year">Ano</label>
+        </div>
+        <div>
+            <input type="text" id="year" placeholder="" th:field="*{year}">
+        </div>
     </div>
-    <div>
-        <label for="color">Cor</label>
-        <input type="text" id="color" th:field="*{color}">
+    <div class="form-input">
+        <div>
+            <label for="color">Cor</label>
+        </div>
+        <div>
+            <input type="text" id="color" th:field="*{color}">
+        </div>
     </div>
-    <div>
+    <div class="form-button">
         <button type="submit">Enviar</button>
     </div>
 </form>
+<a class="back-link" th:href="@{/cars}">Voltar</a>
 </body>
 </html>
